@@ -1,5 +1,5 @@
-dtf['word_count'] = dtf["text"].apply(lambda x: len(str(x).split(" ")))
-dtf['char_count'] = dtf["text"].apply(lambda x: sum(len(word) for word in str(x).split(" ")))
-dtf['sentence_count'] = dtf["text"].apply(lambda x: len(str(x).split(".")))
-dtf['avg_word_length'] = dtf['char_count'] / dtf['word_count']
-dtf['avg_sentence_lenght'] = dtf['word_count'] / dtf['sentence_count']
+df['word_count'] = df["text"].apply(lambda x: len(str(x).split(" ")))
+df['char_count'] = df["text"].apply(lambda x: sum(len(word) for word in str(x).split(" ")))
+df['sentence_count'] = df["text"].apply(lambda x: len(str(x).split(".")))
+df['avg_word_length'] = df['char_count'] / df['word_count']
+df['avg_sentence_length'] = df['word_count'] / df['sentence_count']
