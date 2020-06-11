@@ -36,7 +36,7 @@ classifers = [classifier_LR,classifier_KNN,classifier_GNB  ,classifier_SVM, clas
 
 from sklearn.metrics import confusion_matrix,accuracy_score,precision_score,recall_score,f1_score,roc_auc_score
 
-
+result=[]
 for classifer in classifers:
     classifer.fit(X_train, y_train)
     y_pred = classifer.predict(X_test)
@@ -76,3 +76,19 @@ classifer = GridSearchCV(classifier_SVM,grid,cv=8,verbose=1,n_jobs=-1,scoring='f
 
 classifer.fit(X_train, y_train)
 print("tuned hpyerparameters :(best parameters) ", classifer.best_params_)
+
+
+
+################################################
+#Saving and loading a model
+###############################################
+import pickle 
+filename = 'final_model.sav'
+pickle.dump(model, open(filename, 'wb'))
+
+# some time later...
+ 
+# load the model from disk
+loaded_model = pickle.load(open(filename, 'rb'))
+result = loaded_model.score(X_test, Y_test)
+print(result)
