@@ -59,5 +59,32 @@ df['Jaccard_Similarity_AVG']= JaccardMatrix.mean(axis=0)
 df['Jaccard_Similarity_STD']= JaccardMatrix.std(axis=0)            
  
 
+    
+ #Levenstein distance / Edit distance
 
+
+The thing you are looking at is called an edit distance and here is a nice explanation on wiki. There are a lot of ways how to define a distance between the two words and the one that you want is called Levenshtein distance and here is a DP implementation in python.
+
+def levenshteinDistance(s1, s2):
+    if len(s1) > len(s2):
+        s1, s2 = s2, s1
+
+    distances = range(len(s1) + 1)
+    for i2, c2 in enumerate(s2):
+        distances_ = [i2+1]
+        for i1, c1 in enumerate(s1):
+            if c1 == c2:
+                distances_.append(distances[i1])
+            else:
+                distances_.append(1 + min((distances[i1], distances[i1 + 1], distances_[-1])))
+        distances = distances_
+    return distances[-1]
+
+for  i in range (0,len(Words)):
+    for  j in range (0,len(Words)):
+        if i!=j :
+            LevensteinMatrix[i,j]=LevensteinMatrix(Words[i],Words[j])
+            
+df['Levenstein_Similarity_AVG']= LevensteinMatrix.mean(axis=0)
+df['Levenstein_Similarity_STD']= LevensteinMatrix.std(axis=0) 
 
