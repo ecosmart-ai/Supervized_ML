@@ -1,4 +1,6 @@
+##################################################
 #Remove stopwords and stemmers
+##################################################
 import re
 import nltk
 nltk.download('stopwords')
@@ -16,8 +18,9 @@ for i in range(0, len(Words)):
 
 
 
-
+##################################################
 # basic statistical features
+##################################################
 df['word_count'] = df["text"].apply(lambda x: len(str(x).split(" ")))
 df['char_count'] = df["text"].apply(lambda x: sum(len(word) for word in str(x).split(" ")))
 df['avg_word_length'] = df['char_count'] / df['word_count']
@@ -27,9 +30,12 @@ df['avg_sentence_length'] = df['word_count'] / df['sentence_count']
 
 Words['STD_Ratings']=Words['Ratings'].apply(lambda x: (x-Words['Ratings'].mean())/Words['Ratings'].std())
 
-
+##################################################
 #cosine similarity based on tf-idf matrix 
 # tf-idf matrix input as a dataframe
+##################################################
+
+
 from sklearn.metrics.pairwise import cosine_similarity  
 
 # X = np.array(tf_idf)
@@ -39,10 +45,10 @@ Cosine_Matrix_tfidf=(cosine_similarity(np.array(tf_idf) ,np.array(tf_idf))-np.id
 df['Cosine_AVG']= Cosine_Matrix_tfidf.mean(axis=0)
 df['Cosine_STD']= Cosine_Matrix_tfidf.std(axis=0)
 
-
+##################################################
 #Jacquard similarity based on list of words
 #input is a list of text words should be stemmed
-
+##################################################
 def jaccard(a, b):
     a = set(a.split())
     b = set(b.split())
@@ -59,9 +65,9 @@ df['Jaccard_Similarity_AVG']= JaccardMatrix.mean(axis=0)
 df['Jaccard_Similarity_STD']= JaccardMatrix.std(axis=0)            
  
 
-    
+################################################## 
  #Levenstein distance / Edit distance
-
+##################################################
 
 The thing you are looking at is called an edit distance and here is a nice explanation on wiki. There are a lot of ways how to define a distance between the two words and the one that you want is called Levenshtein distance and here is a DP implementation in python.
 
