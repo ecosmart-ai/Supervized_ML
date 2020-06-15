@@ -33,7 +33,7 @@ Words['STD_Ratings']=Words['Ratings'].apply(lambda x: (x-Words['Ratings'].mean()
 ##################################################
 #cosine similarity based on tf-idf matrix 
 # tf-idf matrix input as a dataframe
-##################################################
+###################################################
 
 
 from sklearn.metrics.pairwise import cosine_similarity  
