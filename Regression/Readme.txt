@@ -3,3 +3,4 @@ Include Regression model
 -Multivariate Linear Regresssion
 -Support vector regression
 -Random Forest regression
+- XGBOOST Regression
