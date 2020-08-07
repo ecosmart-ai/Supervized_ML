@@ -36,7 +36,8 @@ classifers = [classifier_LR,classifier_KNN,classifier_GNB  ,classifier_SVM, clas
 
 from sklearn.metrics import confusion_matrix,accuracy_score,precision_score,recall_score,f1_score,roc_auc_score
 
-result=[]
+i=0
+result = pd.DataFrame(columns = ['model','accuracy','precision','recall','F1score','ROC'])
 for classifer in classifers:
     classifer.fit(X_train, y_train)
     y_pred = classifer.predict(X_test)
@@ -47,8 +48,8 @@ for classifer in classifers:
     f1score =  f1_score(y_test, y_pred, average='weighted')
     roc =  roc_auc_score(y_test, y_pred, average='weighted')
     result=result.append({'model' : List_Model[i] , 'accuracy' : acc ,'precision' : precision , 'recall' : recall , 'F1score' : f1score  , 'ROC' : roc  } , ignore_index=True)
-
-
+    print('model : ', List_Model[i] , ' ROC : ',roc , ' CM :\n', cm)
+    i+=1
 
 
 # grid search
