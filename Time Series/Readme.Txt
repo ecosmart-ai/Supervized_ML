@@ -1,3 +1,4 @@
 -FB Prophet
 -RNN
 -Arima
+-LSTM
