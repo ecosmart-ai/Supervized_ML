@@ -4,6 +4,6 @@ Library of all generic functions
 2. to add how to create a sequence of classification models 
 3. Data augmentation with logarithmic and other function correlation optimisation with labels
 4. Cascade neural networks
-5.
+5.ensemble bagging
 
 
