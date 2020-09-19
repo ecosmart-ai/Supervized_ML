@@ -6,5 +6,6 @@ Library of all generic functions
 4. Cascade neural networks
 5.ensemble bagging
 6. Automate simpple numerical machine learning
+7.Full pipeline with gridsearch
 
 
