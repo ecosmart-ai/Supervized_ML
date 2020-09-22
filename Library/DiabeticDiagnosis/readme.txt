@@ -1,1 +1,1 @@
-Pipeline gridsearch to check best model
+Pipeline gridsearch to select best model
