@@ -8,5 +8,6 @@ Library of all generic functions
 6. Automate simpple numerical machine learning
 7.Full pipeline with gridsearch (pre-processing and classification model) and iteration of gridsearch
 8.mutliclass metrics
+9. Vectorizer (Image, Text)
 
 
