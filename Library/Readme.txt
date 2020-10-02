@@ -9,5 +9,5 @@ Library of all generic functions
 7.Full pipeline with gridsearch (pre-processing and classification model) and iteration of gridsearch
 8.mutliclass metrics
 9. Vectorizer (Image, Text)
-
+10. Time series library sktime
 
